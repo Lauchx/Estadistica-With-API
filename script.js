@@ -2,7 +2,7 @@ let frecuenciaEdades = []
 
 function SearchStudents_EducationLevels()
 {
-    let datardos = []
+    let datApi = []
     new Promise ((resolve, reject) =>{
     fetch('https://apidemo.geoeducacion.com.ar/api/testing/encuesta/1')
         .then(api =>{
@@ -25,61 +25,70 @@ function SearchStudents_EducationLevels()
     
     .then((apiJsons)=> {
         
-        datardos = apiJsons.data
+        datApi = apiJsons.data
 
-        console.log(datardos) 
+        console.log(datApi) 
 
-        if(datardos.length > 0)
+        if(datApi.length > 0)
             { 
                 
                 const table = document.getElementById('Table_EducationLevel').getElementsByTagName('tbody')[0]
 
-                let caca = [[]]
-                caca[0][0] = -1
+                let array = [[]]
+                array[0][0] = -1
                 
                 
-                datardodatardos.forEach((element, index) => {
+                console.log("jaja1")
+                datApi.forEach((element, index) => {
                     let contador = 0
-                    let a = False
-                    while(element.id_curso != caca[0][contador] || caca[0][contador] == caca.length){
-                        if (caca[0][contador] == element.id_curso) {
-                            caca[1][contador]++
+                    //let a = false
+                    console.log("ysy")
+
+                    while(element.id_curso != array[0][contador] && array[0][contador] == array.length){
+                        if (array[0][contador] == element.id_curso) {
+                            array[1][contador]++
+                            console.log("jaja")
                         }
                         contador++
                     } 
-                    if ()                   
+                    //if ()    
+                        console.log("jaja3")               
                 })
+                console.log("nanananan")
+
                 
-                
-                datardos.forEach((element, index) => {
+                console.log("log")
+                datApi.forEach((element, index) => {
+                    console.log("rey")
 
                     let nuevaFila1 = table.insertRow();
-                    
-                    var celda1 = nuevaFila1.insertCell(0)
-                    celda1.innerHTML = 0
+                   /* let nuevaFila2 = table.insertRow();
+                    let nuevaFila3 = table.insertRow();
+                    let nuevaFila4 = table.insertRow(); */
 
-                     
-                    
-/*
-                    let nuevaFila1 = table.insertRow();
+                    //var celda1 = nuevaFila1.insertCell(0)
+                    //celda1.innerHTML = 0
                     
                     var celda1 = nuevaFila1.insertCell(0)
                     var celda2 = nuevaFila1.insertCell(1)
                     var celda3 = nuevaFila1.insertCell(2)
                     var celda4 = nuevaFila1.insertCell(3)
-                            
+                    
                     celda1.innerHTML = element.curso
+                    celda2.innerHTML = element.data
+                    celda3.innerHTML = element.Edad
+                    celda4.innerHTML = element.apellido
 
-                    caca[i] = element.id_curso
+                    array[i] = element.id_curso
 
                     let abs = frecuenciaAbsoluta(element.id_curso)
 
                     celda1.innerHTML = element.id_curso
                     celda2.innerHTML = popo
-                    celda3.innerHTML = 0++
-                    celda4.innerHTML = 0++*/
+                    celda3.innerHTML++
+                    celda4.innerHTML++
                     
-                    
+                    console.log(abs)
                     
                     var j = 1
 

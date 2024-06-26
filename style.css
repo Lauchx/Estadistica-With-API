@@ -2,3 +2,7 @@ table
 {
     border: 1px solid;
 }
+body{
+    background: black;
+    color: white;
+}
