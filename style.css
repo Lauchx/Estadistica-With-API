@@ -2,20 +2,21 @@ body{
     background: black;
     color: white;
 }
-table
+.table
 {
      border: 1px solid;
      text-align: center;
+     box-shadow: 20px 10px 20px;
 }
 button:hover{
-    background: rgb(255, 0, 0);
+    background: rgb(137, 140, 250);
 }
 th{
     border: 1px solid;
 }
 td{
    
-        border: 1px solid;
+    border: 1px solid;
     
 }
 tr{

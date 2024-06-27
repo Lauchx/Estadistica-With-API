@@ -111,11 +111,8 @@ function SearchStudents_EducationLevels() {
                             //console.log(array[1][contador]) // 1
 
                         }
-
-
                         //console.log("//////////////////////////////////////")
                         //console.log(element.id_curso)
-
                         contador++
                     }
                 })
@@ -137,13 +134,35 @@ function SearchStudents_EducationLevels() {
                     celda3.innerHTML = array2[1][i]
                     frecuenciaAbsolutaAcumulada2 += array2[1][i]
                     celda4.innerHTML = frecuenciaAbsolutaAcumulada2
-                    celda5.innerHTML = ((array2[1][i] / total) * 100).toFixed(3)
+                    celda5.innerHTML = ((array2[1][i] / total) * 100).toFixed(2)
                 }
 
  
             }
         })
 
+
+}
+function  entirePopulation() {
+    new Promise(resolve, reject =>{
+        fetch('https://apidemo.geoeducacion.com.ar/api/testing/encuesta/1')
+            .then(api => {
+                if (!api.ok) {
+                    throw new Error('Kumpa no podes andar con ese internet....')
+                }
+                return api.json()
+            })
+            .then(apiJson => {
+
+                resolve(apiJson)
+            })
+
+            .catch(apiJson => {
+
+                reject(apiJson)
+            })
+
+    })
 
 }
 
