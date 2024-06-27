@@ -1,11 +1,11 @@
 let frecuenciaEdades = []
 
-function SearchStudents_EducationLevels(button) {
+function SearchStudents_EducationLevels() {
     let datApi = []
-    button.disabled = true
+    //button.disabled = true
       document.getElementById('TablaCursos').innerHTML = '<h1>' + "Tabla de cursos" + '<h1>'
       document.getElementById('TablaNieveles').innerHTML = '<h1>' + "Tabla de niveles" + '<h1>'
-
+    
 
     new Promise((resolve, reject) => {
         fetch('https://apidemo.geoeducacion.com.ar/api/testing/encuesta/1')
@@ -13,7 +13,7 @@ function SearchStudents_EducationLevels(button) {
                 if (!api.ok) {
                     throw new Error('Kumpa no podes andar con ese internet....')
                 }
-                return api.json();
+                return api.json()
             })
             .then(apiJson => {
 
@@ -24,9 +24,7 @@ function SearchStudents_EducationLevels(button) {
 
                 reject(apiJson)
             })
-    })
-
-        .then((apiJsons) => {
+    }).then((apiJsons) => {
 
             datApi = apiJsons.data
 
@@ -35,8 +33,9 @@ function SearchStudents_EducationLevels(button) {
             if (datApi.length > 0) {
 
                 const table = document.getElementById('Table_EducationLevel').getElementsByTagName('tbody')[0]
-
-
+                //console.log("jaja" + table)
+                table.innerHTML = ""
+                //console.log(table)
                 let array = [
                     [1, 2, 3, 4, 5, 6],
                     [0, 0, 0, 0, 0, 0],
@@ -50,21 +49,21 @@ function SearchStudents_EducationLevels(button) {
                         if (array[0][contador] == element.id_curso) {
                             array[1][contador]++
                             array[2][contador] = element.curso
-                            console.log("--- cont")
-                            console.log(array[0][contador]) // 3 -< 6
-                            console.log(array[1][contador]) // 1
+                           // console.log("--- cont")
+                           // console.log(array[0][contador]) 
+                            //console.log(array[1][contador]) 
 
                         }
 
 
-                        console.log("//////////////////////////////////////")
-                        console.log(element.id_curso)
+                        //console.log("//////////////////////////////////////")
+                        //console.log(element.id_curso)
 
                         contador++
                     }
                 })
                 let frecuenciaAbsolutaAcumulada = 0
-                console.log(array[0].length)
+                //console.log(array[0].length)
                 total = 0;
                 for (i = 0; i < array[0].length; i++) {
                     total += array[1][i]
@@ -91,6 +90,9 @@ function SearchStudents_EducationLevels(button) {
 
 
                 const table2 = document.getElementById('Table_Cursos').getElementsByTagName('tbody')[0]
+                //console.log("jaja" + table2)
+                table2.innerHTML = ''
+                //console.log(table2)
                 let array2 = [
                     [1, 2, 3],
                     [0, 0, 0],
@@ -104,21 +106,21 @@ function SearchStudents_EducationLevels(button) {
                         if (array2[0][contador] == element.id_curso) {
                             array2[1][contador]++
                             array2[2][contador] = element.curso
-                            console.log("--- cont")
-                            console.log(array[0][contador]) // 3 -< 6
-                            console.log(array[1][contador]) // 1
+                            //console.log("--- cont")
+                            //console.log(array[0][contador]) // 3 -< 6
+                            //console.log(array[1][contador]) // 1
 
                         }
 
 
-                        console.log("//////////////////////////////////////")
-                        console.log(element.id_curso)
+                        //console.log("//////////////////////////////////////")
+                        //console.log(element.id_curso)
 
                         contador++
                     }
                 })
                 let frecuenciaAbsolutaAcumulada2 = 0
-                console.log(array2[0].length)
+                //console.log(array2[0].length)
                 total = 0;
                 for (i = 0; i < array2[0].length; i++) {
                     total += array2[1][i]
