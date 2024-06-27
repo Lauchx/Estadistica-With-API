@@ -19,46 +19,124 @@
         </tbody>
     </table>
 
-    <ul class="nav nav-pills">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-          
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" >Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <div id="j" ></div>
 
-      <button onclick="SearchStudents_EducationLevels()" >Buscar estudiantes</button>
+    <ul class="nav nav-tabs col-sm-12 bg-black">
+      <li class="nav-item bg-body-secondary" role="presentation">
+        <button class="nav-link active" data-bs-toggle="tab" id="Población-tab" type="button" data-bs-target="#Población" role="tab"
+          aria-controls="Población" aria-selected="true" aria-current="page">Población completa</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab" id="frecuencia-tab" type="button" data-bs-target="#frecuencia" role="tab"
+          aria-controls="frecuencia" aria-selected="true" aria-current="page">Tablas de frecuencia</button>
 
-      <table id="Table_EducationLevel">
-        <thead>
-          <tr>
-            <th>
-              Nivel educativo
-            </th>
-            <th>
-              Frecuencia absoluta
-            </th>
-            <th>
-              Frecuencia acumulada
-            </th>
-            <th>
-              Frecuencia relativa
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-         
-        </tbody>
-      </table>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab" id="Estadísticos-tab" type="button" data-bs-target="#Estadísticos"
+          role="tab" aria-controls="Estadísticos" aria-selected="true" aria-current="page">Estadísticos</button>
+      </li>
+    </ul>
+    <div class="shadow-lg tab-content bg-white  p-2" id="myTabControl">
+      <div class="tab-pane fade show active " role="tabpanel" id="Población" aria-labelledby="Población-tab" tabindex="0">
+        
+      </div>
+      <div class="tab-pane fade" id="frecuencia" role="tabpanel" aria-labelledby="frecuencia-tab" tabindex="0">
+        <button onclick="SearchStudents_EducationLevels(this)">Tablas de frecuencia</button>
+        <div id="TablaCursos"></div>
+
+        <table class="bg-white" id="Table_Cursos">
+          <thead>
+            <tr>
+              <th>
+                ID
+              </th>
+              <th>
+                  Nombre cursos
+              </th>
+              <th>
+                Frecuencia absoluta
+              </th>
+              <th>
+                Frecuencia acumulada
+              </th>
+              <th>
+                Frecuencia relativa
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+           
+          </tbody>
+        </table>
+        <div id="TablaNieveles"></div>
+        <table class="bg-white" id="Table_EducationLevel">
+          <thead>
+            <tr>
+              <th>
+                ID
+              </th>
+              <th>
+                Nivel educativo
+              </th>
+              <th>
+                Frecuencia absoluta
+              </th>
+              <th>
+                Frecuencia acumulada
+              </th>
+              <th>
+                Frecuencia relativa
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+           
+          </tbody>
+        </table>
+
+      </div>
+
+
+      <div class="tab-pane fade" id="Estadísticos" role="tabpanel" aria-labelledby="Estadísticos-tab" tabindex="0">
+        
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+      
 
 </body>
 

@@ -1,8 +1,31 @@
-table
-{
-    border: 1px solid;
-}
 body{
     background: black;
     color: white;
+}
+table
+{
+     border: 1px solid;
+     text-align: center;
+}
+button:hover{
+    background: rgb(255, 0, 0);
+}
+th{
+    border: 1px solid;
+}
+td{
+   
+        border: 1px solid;
+    
+}
+tr{
+    border: 1px solid;
+}
+.fondo{
+    background: rgb(255, 0, 0);
+    color: white;
+}
+div
+{
+    color: black;
 }

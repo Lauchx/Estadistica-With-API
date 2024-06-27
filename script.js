@@ -1,131 +1,148 @@
 let frecuenciaEdades = []
 
-function SearchStudents_EducationLevels()
-{
+function SearchStudents_EducationLevels(button) {
     let datApi = []
-    new Promise ((resolve, reject) =>{
-    fetch('https://apidemo.geoeducacion.com.ar/api/testing/encuesta/1')
-        .then(api =>{
-            if(!api.ok)
-            {   
-                throw new Error ('Kumpa no podes andar con ese internet....')
-            }
-            return api.json();
-        })
-        .then(apiJson =>{
-        
-            resolve(apiJson)
-        })
-        
-        .catch(apiJson =>{
-        
-            reject(apiJson)
-         })
+    button.disabled = true
+      document.getElementById('TablaCursos').innerHTML = '<h1>' + "Tabla de cursos" + '<h1>'
+      document.getElementById('TablaNieveles').innerHTML = '<h1>' + "Tabla de niveles" + '<h1>'
+
+
+    new Promise((resolve, reject) => {
+        fetch('https://apidemo.geoeducacion.com.ar/api/testing/encuesta/1')
+            .then(api => {
+                if (!api.ok) {
+                    throw new Error('Kumpa no podes andar con ese internet....')
+                }
+                return api.json();
+            })
+            .then(apiJson => {
+
+                resolve(apiJson)
+            })
+
+            .catch(apiJson => {
+
+                reject(apiJson)
+            })
     })
-    
-    .then((apiJsons)=> {
-        
-        datApi = apiJsons.data
 
-        console.log(datApi) 
+        .then((apiJsons) => {
 
-        if(datApi.length > 0)
-            { 
-                
+            datApi = apiJsons.data
+
+            console.log(datApi)
+
+            if (datApi.length > 0) {
+
                 const table = document.getElementById('Table_EducationLevel').getElementsByTagName('tbody')[0]
 
-                let array = [[]]
-                array[0][0] = -1
-                
-                
-                console.log("jaja1")
+
+                let array = [
+                    [1, 2, 3, 4, 5, 6],
+                    [0, 0, 0, 0, 0, 0],
+                    ["", "", "", "", "", ""]
+                ];
+
                 datApi.forEach((element, index) => {
                     let contador = 0
-                    //let a = false
-                    console.log("ysy")
 
-                    while(element.id_curso != array[0][contador] && array[0][contador] == array.length){
+                    while (contador != array[0].length) {
                         if (array[0][contador] == element.id_curso) {
                             array[1][contador]++
-                            console.log("jaja")
+                            array[2][contador] = element.curso
+                            console.log("--- cont")
+                            console.log(array[0][contador]) // 3 -< 6
+                            console.log(array[1][contador]) // 1
+
                         }
+
+
+                        console.log("//////////////////////////////////////")
+                        console.log(element.id_curso)
+
                         contador++
-                    } 
-                    //if ()    
-                        console.log("jaja3")               
+                    }
                 })
-                console.log("nanananan")
+                let frecuenciaAbsolutaAcumulada = 0
+                console.log(array[0].length)
+                total = 0;
+                for (i = 0; i < array[0].length; i++) {
+                    total += array[1][i]
+                }
+                for (i = 0; i < array[0].length; i++) {
+                    let nuevafila = table.insertRow()
+                    let celda = nuevafila.insertCell()
+                    let celda2 = nuevafila.insertCell()
+                    let celda3 = nuevafila.insertCell()
+                    let celda4 = nuevafila.insertCell()
+                    let celda5 = nuevafila.insertCell()
+                    celda.innerHTML = array[0][i]
+                    celda2.innerHTML = array[2][i]
+                    celda3.innerHTML = array[1][i]
+                    frecuenciaAbsolutaAcumulada += array[1][i]
+                    celda4.innerHTML = frecuenciaAbsolutaAcumulada
+                    celda5.innerHTML = ((array[1][i] / total) * 100).toFixed(3)
+                }
+               
 
-                
-                console.log("log")
+
+
+
+
+
+                const table2 = document.getElementById('Table_Cursos').getElementsByTagName('tbody')[0]
+                let array2 = [
+                    [1, 2, 3],
+                    [0, 0, 0],
+                    ["", "", ""]
+                ];
+
                 datApi.forEach((element, index) => {
-                    console.log("rey")
+                    let contador = 0
 
-                    let nuevaFila1 = table.insertRow();
-                   /* let nuevaFila2 = table.insertRow();
-                    let nuevaFila3 = table.insertRow();
-                    let nuevaFila4 = table.insertRow(); */
+                    while (contador != array2[0].length) {
+                        if (array2[0][contador] == element.id_curso) {
+                            array2[1][contador]++
+                            array2[2][contador] = element.curso
+                            console.log("--- cont")
+                            console.log(array[0][contador]) // 3 -< 6
+                            console.log(array[1][contador]) // 1
 
-                    //var celda1 = nuevaFila1.insertCell(0)
-                    //celda1.innerHTML = 0
-                    
-                    var celda1 = nuevaFila1.insertCell(0)
-                    var celda2 = nuevaFila1.insertCell(1)
-                    var celda3 = nuevaFila1.insertCell(2)
-                    var celda4 = nuevaFila1.insertCell(3)
-                    
-                    celda1.innerHTML = element.curso
-                    celda2.innerHTML = element.data
-                    celda3.innerHTML = element.Edad
-                    celda4.innerHTML = element.apellido
+                        }
 
-                    array[i] = element.id_curso
 
-                    let abs = frecuenciaAbsoluta(element.id_curso)
+                        console.log("//////////////////////////////////////")
+                        console.log(element.id_curso)
 
-                    celda1.innerHTML = element.id_curso
-                    celda2.innerHTML = popo
-                    celda3.innerHTML++
-                    celda4.innerHTML++
-                    
-                    console.log(abs)
-                    
-                    var j = 1
+                        contador++
+                    }
+                })
+                let frecuenciaAbsolutaAcumulada2 = 0
+                console.log(array2[0].length)
+                total = 0;
+                for (i = 0; i < array2[0].length; i++) {
+                    total += array2[1][i]
+                }
+                for (i = 0; i < array2[0].length; i++) {
+                    let nuevafila = table2.insertRow()
+                    let celda = nuevafila.insertCell()
+                    let celda2 = nuevafila.insertCell()
+                    let celda3 = nuevafila.insertCell()
+                    let celda4 = nuevafila.insertCell()
+                    let celda5 = nuevafila.insertCell()
+                    celda.innerHTML = array2[0][i]
+                    celda2.innerHTML = array2[2][i]
+                    celda3.innerHTML = array2[1][i]
+                    frecuenciaAbsolutaAcumulada2 += array2[1][i]
+                    celda4.innerHTML = frecuenciaAbsolutaAcumulada2
+                    celda5.innerHTML = ((array2[1][i] / total) * 100).toFixed(3)
+                }
 
-                    document.getElementById('j').innerHTML = '<p>' + j + '<p>'
-                    
-                });
-
+ 
             }
-    })
+        })
 
 
 }
 
-function frecuenciaAbsoluta(idCurso) {
-    if (idCurso == 1){
-        frecuenciaEdades[0]++
-        return frecuenciaEdades[0]
-    }
-    else if (idCurso == 2){
-        frecuenciaEdades[1]++ 
-        return frecuenciaEdades[1]
-    }
-    else if (idCurso == 3){
-        frecuenciaEdades[2]++
-        return frecuenciaEdades[2]
-    } 
-    else if (idCurso == 4){
-        frecuenciaEdades[3]++ 
-        return frecuenciaEdades[3]
-    }
-    else if (idCurso == 5){
-        frecuenciaEdades[4]++ 
-        return frecuenciaEdades[4]
-    }
-    else if (idCurso == 6){
-        frecuenciaEdades[5]++ 
-        return frecuenciaEdades[5]
-    }
 
-}
