@@ -13,22 +13,48 @@
     <ul class="nav nav-tabs col-sm-12 bg-black">
       <li class="nav-item " role="presentation">
         <button class="nav-link active" data-bs-toggle="tab" id="Población-tab" type="button" data-bs-target="#Población" role="tab"
-          aria-controls="Población" aria-selected="true" aria-current="page">Población completa</button>
+          aria-controls="Población" aria-selected="true" aria-current="page" onclick="SearchStudents_EducationLevels(0)">Población completa</button>
       </li>
       <li class="nav-item">
         <button class="nav-link" data-bs-toggle="tab" id="frecuencia-tab" type="button" data-bs-target="#frecuencia" role="tab"
-          aria-controls="frecuencia" aria-selected="true" aria-current="page" onclick="SearchStudents_EducationLevels()">Tablas de frecuencia</button>
+          aria-controls="frecuencia" aria-selected="true" aria-current="page" onclick="SearchStudents_EducationLevels(1)">Tablas de frecuencia</button>
 
       </li>
       <li class="nav-item">
         <button class="nav-link" data-bs-toggle="tab" id="Estadísticos-tab" type="button" data-bs-target="#Estadísticos"
-          role="tab" aria-controls="Estadísticos" aria-selected="true" aria-current="page">Estadísticos</button>
+          role="tab" aria-controls="Estadísticos" aria-selected="true" aria-current="page" onclick="SearchStudents_EducationLevels(2)">Estadísticos</button>
       </li>
     </ul>
     <div class="shadow-lg tab-content bg-white  p-2" id="myTabControl">
+
       <div class="tab-pane fade show active " role="tabpanel" id="Población" aria-labelledby="Población-tab" tabindex="0">
+        <div id="TablaPob"></div>
+
+        <table class="bg-white table" id="Table_Pob">
+          <thead>
+            <tr>
+              <th>
+                Nombre
+              </th>
+              <th>
+                Edad
+              </th>
+              <th>
+                Curso
+              </th>
+              <th>
+                Nivel Educativo
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+           
+          </tbody>
+        </table>
         
+
       </div>
+
       <div class="tab-pane fade" id="frecuencia" role="tabpanel" aria-labelledby="frecuencia-tab" tabindex="0">
         
         <div id="TablaCursos"></div>
@@ -87,7 +113,39 @@
 
 
       <div class="tab-pane fade" id="Estadísticos" role="tabpanel" aria-labelledby="Estadísticos-tab" tabindex="0">
-        
+        <div id="TablaEstadisticos"></div>
+        <table class="bg-white table" id="Table_Estadisticos">
+          <thead>
+            <tr>
+              <th>
+                Media
+              </th>
+              <th>
+                Mediana
+              </th>
+              <th>
+                Valor Máximo
+              </th>
+              <th>
+                Valor Mínimo
+              </th>
+              <th>
+                Primer Cuartil
+              </th>
+              <th>
+                Segundo Cuartil
+              </th>
+              <th>
+                Desvio Estandar
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+           
+          </tbody>
+        </table>
+
+      </div>
       </div>
     </div>
 
