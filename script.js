@@ -2,11 +2,6 @@ let frecuenciaEdades = []
 
 function SearchStudents_EducationLevels(valor) {
     let datApi = []
-    //button.disabled = true
-      document.getElementById('TablaCursos').innerHTML = '<h1>' + "Tabla de cursos" + '<h1>'
-      document.getElementById('TablaNieveles').innerHTML = '<h1>' + "Tabla de niveles" + '<h1>'
-      document.getElementById('TablaPob').innerHTML = '<h1>' + "Tabla de poblacion" + '<h1>'
-      document.getElementById('TablaEstadisticos').innerHTML = '<h1>' + "Tabla de estadisticos" + '<h1>'
     
 
     new Promise((resolve, reject) => {
@@ -34,8 +29,20 @@ function SearchStudents_EducationLevels(valor) {
 
             if (datApi.length > 0) {
                 if (valor == 0){
+                    document.getElementById('TablaPob').style.display = 'block'
+                    document.getElementById('TablaPob').innerHTML = '<h1>' + "Tabla de poblacion" + '<h1>'
+                    document.getElementById('TablaCursos').style.display = 'none'
+                    document.getElementById('TablaNieveles').style.display = 'none'
+                    document.getElementById('TablaEstadisticos').style.display = 'none'
+
+                    document.getElementById('Table_Pob').style.display = 'block'
+                    document.getElementById('Table_Cursos').style.display = 'none'
+                    document.getElementById('Table_EducationLevel').style.display = 'none'
+                    document.getElementById('Table_Estadisticos').style.display = 'none'
                     const table = document.getElementById('Table_Pob').getElementsByTagName('tbody')[0]
                     table.innerHTML = ""
+                    
+                    
                     datApi.forEach((element, index) => { //le insertamos las celdas y columnas con los datos
                         let nuevaFila = table.insertRow();
                         let celda1 = nuevaFila.insertCell();
@@ -49,7 +56,19 @@ function SearchStudents_EducationLevels(valor) {
                         celda4.innerHTML = element.nivel;
                     });
                 }
-                if (valor == 1){
+                else if (valor == 1){
+                    document.getElementById('TablaCursos').style.display = 'block'
+                    document.getElementById('TablaNieveles').style.display = 'block'
+                    document.getElementById('TablaCursos').innerHTML = '<h1>' + "Tabla de cursos" + '<h1>'
+                    document.getElementById('TablaNieveles').innerHTML = '<h1>' + "Tabla de niveles" + '<h1>'
+                    document.getElementById('TablaPob').style.display = 'none'
+                    document.getElementById('TablaEstadisticos').style.display = 'none'
+
+                    document.getElementById('Table_Pob').style.display = 'none'
+                    document.getElementById('Table_Cursos').style.display = 'block'
+                    document.getElementById('Table_EducationLevel').style.display = 'block'
+                    document.getElementById('Table_Estadisticos').style.display = 'none'
+
                     const table = document.getElementById('Table_EducationLevel').getElementsByTagName('tbody')[0]
                     //console.log("jaja" + table)
                     table.innerHTML = ""
@@ -151,7 +170,17 @@ function SearchStudents_EducationLevels(valor) {
                         celda5.innerHTML = ((array2[1][i] / total) * 100).toFixed(2)
                     }
                 }
-                if (valor == 2){
+                else if (valor == 2){
+                    document.getElementById('TablaEstadisticos').style.display = 'block'
+                    document.getElementById('TablaEstadisticos').innerHTML = '<h1>' + "Tabla de estadisticos" + '<h1>'
+                    document.getElementById('TablaCursos').style.display = 'none'
+                    document.getElementById('TablaNieveles').style.display = 'none'
+                    document.getElementById('TablaPob').style.display = 'none'
+
+                    document.getElementById('Table_Pob').style.display = 'none'
+                    document.getElementById('Table_Cursos').style.display = 'none'
+                    document.getElementById('Table_EducationLevel').style.display = 'none'
+                    document.getElementById('Table_Estadisticos').style.display = 'block'
                     const table = document.getElementById('Table_Estadisticos').getElementsByTagName('tbody')[0]
                     table.innerHTML = ""
                     edades = []
