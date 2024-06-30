@@ -1,7 +1,7 @@
 let frecuenciaEdades = []
 function inicio(){
     document.getElementById('Inicio').style.display = 'block'
-    document.getElementById('Inicio').innerHTML = '<h1>' + "Tablas de Frecuencia y Estadísticos" + '</h1>' + '<h3>' + "Trabajo realizado por: Rojo Ignacio; Retamales Lautaro" + '</h3>' + '<img src="nacho.jpg" alt="nacho"></img>' +  '<img src="lautaro.jpg" alt="lautaro"></img>'
+    //document.getElementById('Inicio').innerHTML = '<h1>' + "Tablas de Frecuencia y Estadísticos" + '</h1>' + '<h3>' + "Trabajo realizado por: Rojo Ignacio; Retamales Lautaro" + '</h3>' + '<img src="nacho.jpg" alt="nacho"></img>' +  '<img src="lautaro.jpg" alt="lautaro"></img>'
     document.getElementById('TablaCursos').style.display = 'none'
     document.getElementById('TablaNieveles').style.display = 'none'
     document.getElementById('TablaEstadisticos').style.display = 'none'

@@ -10,6 +10,7 @@ body{
 }
 img{
     height: 500px;
+    margin: 0px;
 }
 
 .spantable{
