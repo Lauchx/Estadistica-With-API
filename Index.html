@@ -1,252 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" ></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabla Estadística</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--google fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <!--google fonts-->
+  <title>Tabla Estadística</title>
 </head>
+
 <body>
-<nav>
-  <a onclick="SearchStudents_EducationLevels(0)">Población completa</a>
-  <a onclick="SearchStudents_EducationLevels(1)">Tablas de frecuencia</a>
-  <a onclick="SearchStudents_EducationLevels(2)">Estadísticos</a>
-</nav>
+  <nav>
+    <a onclick="inicio()">Inicio</a>
+    <a onclick="SearchStudents_EducationLevels(0)">Población completa</a>
+    <a onclick="SearchStudents_EducationLevels(1)">Tablas de frecuencia</a>
+    <a onclick="SearchStudents_EducationLevels(2)">Estadísticos</a>
+  </nav>
+  <div class="Inicio" id="Inicio">
+    <h1>Tablas de Frecuencia y Estadísticos</h1>
+    <h3>Trabajo realizado por: Rojo Ignacio; Retamales Lautaro</h3>
+    <img src="nacho.jpg" alt="nacho">
+    <img src="lautaro.jpg" alt="lautaro">
+  </div>
+  <span class="spantable">
+    <div id="TablaCursos"></div>
 
-<div class="divtable">
-<div id="TablaCursos" ></div>
+    <table class="Table_Cursos" id="Table_Cursos">
+      <thead>
+        <tr>
+          <th>
+            ID
+          </th>
+          <th>
+            Nombre cursos
+          </th>
+          <th>
+            Frecuencia absoluta
+          </th>
+          <th>
+            Frecuencia acumulada
+          </th>
+          <th>
+            Frecuencia relativa
+          </th>
+        </tr>
+      </thead>
+      <tbody>
 
-        <table class="Table_Cursos" id="Table_Cursos">
-          <thead>
-            <tr>
-              <th>
-                ID
-              </th>
-              <th>
-                  Nombre cursos
-              </th>
-              <th>
-                Frecuencia absoluta
-              </th>
-              <th>
-                Frecuencia acumulada
-              </th>
-              <th>
-                Frecuencia relativa
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-           
-          </tbody>
-        </table>
-
-           
-<div id="TablaNieveles" ></div>
-        <table class="Table_EducationLevel" id="Table_EducationLevel">
-          <thead>
-            <tr>
-              <th>
-                ID
-              </th>
-              <th>
-                Nivel educativo
-              </th>
-              <th>
-                Frecuencia absoluta
-              </th>
-              <th>
-                Frecuencia acumulada
-              </th>
-              <th>
-                Frecuencia relativa
-              </th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-
-        <div id="TablaPob"></div>
-
-        <table class="Table_Pob" id="Table_Pob">
-          <thead>
-            <tr>
-              <th>
-                Nombre
-              </th>
-              <th>
-                Edad
-              </th>
-              <th>
-                Curso
-              </th>
-              <th>
-                Nivel Educativo
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-           
-          </tbody>
-        </table>
-        <div id="TablaEstadisticos"></div>
-        <table class="Table_Estadisticos" id="Table_Estadisticos">
-          <thead>
-            <tr>
-              <th>
-                Media
-              </th>
-              <th>
-                Mediana
-              </th>
-              <th>
-                Valor Máximo
-              </th>
-              <th>
-                Valor Mínimo
-              </th>
-              <th>
-                Primer Cuartil
-              </th>
-              <th>
-                Segundo Cuartil
-              </th>
-              <th>
-                Desvio Estandar
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-           
-          </tbody>
-        </table>
-
-</div>
-
- <!--   <ul class="nav nav-tabs col-sm-12 bg-black">
-      <li class="nav-item " role="presentation">
-        <button class="nav-link bg-black " data-bs-toggle="tab" id="Población-tab" type="button" data-bs-target="#Población" role="tab"
-          aria-controls="Población" aria-selected="true" aria-current="page" onclick="SearchStudents_EducationLevels(0)">Población completa</button>
-      </li>
-      <li class="nav-item ">
-        <button class="nav-link bg-black" data-bs-toggle="tab" id="frecuencia-tab" type="button" data-bs-target="#frecuencia" role="tab"
-          aria-controls="frecuencia" aria-selected="true" aria-current="page" onclick="SearchStudents_EducationLevels(1)">Tablas de frecuencia</button>
-
-      </li>
-      <li class="nav-item">
-        <button class="nav-link bg-black" data-bs-toggle="tab" id="Estadísticos-tab" type="button" data-bs-target="#Estadísticos"
-          role="tab" aria-controls="Estadísticos" aria-selected="true" aria-current="page" onclick="SearchStudents_EducationLevels(2)">Estadísticos</button>
-      </li>
-    </ul>
-    <div class="shadow-lg tab-content bg-black p-2" id="myTabControl">
-
-      <div class="tab-pane fade show" role="tabpanel" id="Población" aria-labelledby="Población-tab" tabindex="0">
-        <div id="TablaPob"></div>
-
-        <table class="bg-black table" id="Table_Pob">
-          <thead>
-            <tr>
-              <th>
-                Nombre
-              </th>
-              <th>
-                Edad
-              </th>
-              <th>
-                Curso
-              </th>
-              <th>
-                Nivel Educativo
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-           
-          </tbody>
-        </table>
-        
-
-      </div>
-
-      <div class="tab-pane fade" id="frecuencia" role="tabpanel" aria-labelledby="frecuencia-tab" tabindex="0">
-        
-     
+      </tbody>
+    </table>
 
 
-      <div class="tab-pane fade" id="Estadísticos" role="tabpanel" aria-labelledby="Estadísticos-tab" tabindex="0">
-        <div id="TablaEstadisticos"></div>
-        <table class="bg-black table" id="Table_Estadisticos">
-          <thead>
-            <tr>
-              <th>
-                Media
-              </th>
-              <th>
-                Mediana
-              </th>
-              <th>
-                Valor Máximo
-              </th>
-              <th>
-                Valor Mínimo
-              </th>
-              <th>
-                Primer Cuartil
-              </th>
-              <th>
-                Segundo Cuartil
-              </th>
-              <th>
-                Desvio Estandar
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-           
-          </tbody>
-        </table>
+    <div id="TablaNieveles"></div>
+    <table class="Table_EducationLevel" id="Table_EducationLevel">
+      <thead>
+        <tr>
+          <th>
+            ID
+          </th>
+          <th>
+            Nivel educativo
+          </th>
+          <th>
+            Frecuencia absoluta
+          </th>
+          <th>
+            Frecuencia acumulada
+          </th>
+          <th>
+            Frecuencia relativa
+          </th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
 
-      </div>
-      </div>
-    </div> -->
+    <div id="TablaPob"></div>
 
+    <table class="Table_Pob" id="Table_Pob">
+      <thead>
+        <tr>
+          <th>
+            Nombre
+          </th>
+          <th>
+            Edad
+          </th>
+          <th>
+            Curso
+          </th>
+          <th>
+            Nivel Educativo
+          </th>
+        </tr>
+      </thead>
+      <tbody>
 
+      </tbody>
+    </table>
+    <div id="TablaEstadisticos"></div>
+    <table class="Table_Estadisticos" id="Table_Estadisticos">
+      <thead>
+        <tr>
+          <th>
+            Media
+          </th>
+          <th>
+            Mediana
+          </th>
+          <th>
+            Valor Máximo
+          </th>
+          <th>
+            Valor Mínimo
+          </th>
+          <th>
+            Primer Cuartil
+          </th>
+          <th>
+            Segundo Cuartil
+          </th>
+          <th>
+            Desvio Estandar
+          </th>
+        </tr>
+      </thead>
+      <tbody>
 
+      </tbody>
+    </table>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-      
+  </span>
 
 </body>
 
@@ -256,11 +145,11 @@
 
 
 <template>
-    <tr>
-       <td>
-        
-       </td> 
-    </tr>
+  <tr>
+    <td>
+
+    </td>
+  </tr>
 </template>
 
 

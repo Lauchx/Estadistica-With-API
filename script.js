@@ -1,4 +1,18 @@
 let frecuenciaEdades = []
+function inicio(){
+    document.getElementById('Inicio').style.display = 'block'
+    document.getElementById('Inicio').innerHTML = '<h1>' + "Tablas de Frecuencia y Estadísticos" + '</h1>' + '<h3>' + "Trabajo realizado por: Rojo Ignacio; Retamales Lautaro" + '</h3>' + '<img src="nacho.jpg" alt="nacho"></img>' +  '<img src="lautaro.jpg" alt="lautaro"></img>'
+    document.getElementById('TablaCursos').style.display = 'none'
+    document.getElementById('TablaNieveles').style.display = 'none'
+    document.getElementById('TablaEstadisticos').style.display = 'none'
+    document.getElementById('TablaPob').style.display = 'none'
+
+    document.getElementById('Table_Cursos').style.display = 'none'
+    document.getElementById('Table_EducationLevel').style.display = 'none'
+    document.getElementById('Table_Estadisticos').style.display = 'none'
+    document.getElementById('Table_Pob').style.display = 'none'
+
+}
 
 function SearchStudents_EducationLevels(valor) {
     let datApi = []
@@ -25,7 +39,7 @@ function SearchStudents_EducationLevels(valor) {
 
             datApi = apiJsons.data
 
-            console.log(datApi)
+           
 
             if (datApi.length > 0) {
                 if (valor == 0){
@@ -34,6 +48,7 @@ function SearchStudents_EducationLevels(valor) {
                     document.getElementById('TablaCursos').style.display = 'none'
                     document.getElementById('TablaNieveles').style.display = 'none'
                     document.getElementById('TablaEstadisticos').style.display = 'none'
+                    document.getElementById('Inicio').style.display = 'none'
 
                     document.getElementById('Table_Pob').style.display = 'block'
                     document.getElementById('Table_Cursos').style.display = 'none'
@@ -63,6 +78,7 @@ function SearchStudents_EducationLevels(valor) {
                     document.getElementById('TablaNieveles').innerHTML = '<h1>' + "Tabla de niveles" + '<h1>'
                     document.getElementById('TablaPob').style.display = 'none'
                     document.getElementById('TablaEstadisticos').style.display = 'none'
+                    document.getElementById('Inicio').style.display = 'none'
 
                     document.getElementById('Table_Pob').style.display = 'none'
                     document.getElementById('Table_Cursos').style.display = 'block'
@@ -176,6 +192,7 @@ function SearchStudents_EducationLevels(valor) {
                     document.getElementById('TablaCursos').style.display = 'none'
                     document.getElementById('TablaNieveles').style.display = 'none'
                     document.getElementById('TablaPob').style.display = 'none'
+                    document.getElementById('Inicio').style.display = 'none'
 
                     document.getElementById('Table_Pob').style.display = 'none'
                     document.getElementById('Table_Cursos').style.display = 'none'
@@ -202,7 +219,7 @@ function SearchStudents_EducationLevels(valor) {
                         }
                     }
 
-                    console.log(edades.length)
+                    
                     let nuevafila = table.insertRow()
 
                     // Media
