@@ -95,6 +95,9 @@ tr{
     text-align: center;
     margin: 5px;
 }
+tr:nth-child(even){
+    background: #ddd;
+}
 div
 {
     display: none;
